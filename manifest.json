@@ -3,19 +3,19 @@
 "name" :"Focus",
 "version" :"1.0",
 "description" :"Using this extension can help you block social networking reminders when you want to study hard.",
-"icons": { "128": "images/icon1.png" },
+"icons": { "128": "images/icon_black.png" },
 "browser_action" : {
-  "default_icon": "images/icon1.png",
+  "default_icon": "images/icon_black.png",
 	"default_popup": "html/popup.html",
-  "default_title": "Work Mode"
+  "default_title": "Focus Mode"
 },
 "background": {
   "scripts": ["js/background.js"],
   "persistent": false
 },
 "permissions": [
-  "webNavigation",
   "tabs",
+  "contentSettings",
   "storage"
 ]
 }
