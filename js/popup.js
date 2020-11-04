@@ -1,39 +1,42 @@
-(function(){
-  var storage = chrome.storage;
+var oBox = document.getElementById('switch_1');
+function updateIconAndText(){
+  var boxText = document.getElementById("boxText");
 
-  function updateIconAndText() {
-    storage.local.get("notificationStatus", function(item){
-      if(item.notificationStatus === "block"){
-        boxText.innerText = "Focus Mode On";
-        chrome.browserAction.setIcon({'path':'../images/icon_white.png'});
-      }
-      else {
-        boxText.innerText = "Focus Mode Off";
-        chrome.browserAction.setIcon({'path':'../images/icon_black.png'});
-      }
-    });
-  }
-
-  function onCheckboxClick(){
-    var cBox = document.getElementById('switch_1');
-    if (cBox.checked){
-      storage.local.set({"notificationStatus": "block"});
-      chrome.contentSettings['notifications'].set({
-        'primaryPattern':'<all_urls>',
-        'setting':'block'
+  chrome.storage.local.get("status", function(item){
+    if(item.status == 'block'){
+      boxText.innerText = "Focus Mode On";
+      oBox.checked = true;
+      chrome.browserAction.setIcon({
+        "path":{
+          '19': '../images/icon_white_19.png',
+          '38': '../images/icon_white_38.png'
+        }
       });
     }
-    else{
-      storage.local.set({"notificationStatus":"none"});
-      chrome.contentSettings['notifications'].clear({});
+    else {
+      boxText.innerText = "Focus Mode Off";
+      oBox.checked = false;
+      chrome.browserAction.setIcon({"path":{
+        '19': '../images/icon_black_19.png',
+        '38': '../images/icon_black_38.png'
+      }});
     }
-    updateIconAndText();
+  });
+}
+
+
+oBox.onclick = function(){
+  if (this.checked){
+    chrome.storage.local.set({'status':'block'});
+    chrome.contentSettings['notifications'].set({
+      'primaryPattern': '<all_urls>',
+      'setting': 'block'
+    });
   }
-
-
+  else {
+    chrome.storage.local.set({'status':'none'});
+    chrome.contentSettings['notifications'].clear({});
+  }
   updateIconAndText();
-
-
-  var cBox = document.getElementById('switch_1');
-  cBox.addEventListener("click",onCheckboxClick);
-})();
+}
+updateIconAndText();
