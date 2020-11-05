@@ -54,3 +54,50 @@ left: 70px;
 .switch-box .switch-box-input:checked ~ .switch-box-slider:after {
   left: 16px;
 }
+#timeBox {
+  position: absolute;
+  top:150px;
+  left:25px;
+  font-family: Georgia;
+  font-size: 22px;
+}
+.input-box{
+position: absolute;
+top: 50px;
+left: 20px;
+font-size:20px;
+
+}
+#hour{
+  width:30px;
+}
+#minute{
+  width:30px;
+}
+.button-box{
+  position: absolute;
+  top: 80px;
+  left: 50px;
+}
+.button {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 20px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.button:hover {background-color: #3e8e41}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
