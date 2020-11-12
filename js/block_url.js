@@ -1,6 +1,6 @@
 const filter = {
   urls: [
-    '*://twitter.com/*',
+    '*://twitter.com/*', '*://facebook.com/*', '*://youtube.com/*'
   ],
 }
 const webRequestFlags = [
