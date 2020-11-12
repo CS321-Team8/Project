@@ -1,0 +1,12 @@
+{
+  "manifest_version": 2,
+
+  "name": "SiteBlocker",
+  "version": "1.0.0",
+  "description": "Block non-important info from your browsers",
+
+  "content_scripts": [{
+    "js": ["block_url.js"],
+    "matches": ["http://*/*", "https://*/*"]
+  }],
+}
