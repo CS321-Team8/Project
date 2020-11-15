@@ -3,7 +3,7 @@
 
   "name": "SiteBlocker",
   "version": "1.0.0",
-  "description": "Block non-important info from your browsers",
+  "description": "Block distracting websites from your browsers",
 
   "content_scripts": [{
     "js": ["block_url.js"],
