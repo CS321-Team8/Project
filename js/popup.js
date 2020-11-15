@@ -20,6 +20,7 @@ var cancelButton = document.getElementById("cancelButton");
 var oBox = document.getElementById('switch_1');
 
 submitButton.onclick = function () { // when click submit button
+	pause = false;
 	clearInterval(timer);
 	initial = parseInt(document.getElementById("hour").value * 60) + parseInt(document.getElementById("minute").value);
 	total = initial * 60;
