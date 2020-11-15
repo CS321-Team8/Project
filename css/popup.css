@@ -77,7 +77,7 @@ font-size:20px;
 .button-box{
   position: absolute;
   top: 80px;
-  left: 50px;
+  left: 10px;
 }
 .button {
   display: inline-block;

@@ -8,7 +8,7 @@ const cd = document.getElementById("countdown");
 function updateCountdown() {
 	const minutes = Math.floor(total / 60);
 	let seconds = total % 60;
-	seconds = seconds < 10 ? seconds + '0' : seconds;
+	seconds = seconds < 10 ? '0'+ seconds  : seconds;
 	cd.innerHTML = `${minutes}: ${seconds}`;
 	total--;
 }
