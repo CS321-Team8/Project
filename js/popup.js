@@ -11,6 +11,11 @@ function updateCountdown() {
 	seconds = seconds < 10 ? '0'+ seconds  : seconds;
 	cd.innerHTML = `${minutes}: ${seconds}`;
 	total--;
+  if (total < 0) {
+    clearInterval(timer);
+    chrome.storage.local.set({'status':'none'});
+    updateIconAndText();
+  }
 }
 
 var submitButton = document.getElementById("submitButton");
@@ -33,12 +38,14 @@ cancelButton.onclick = function() { // when click cancel button
     if (pause == true) {
 		timer = setInterval(updateCountdown, 1000);
 		pause = false;
+    chrome.storage.local.set({'status':'block'});
 	}
 	else {
 		clearInterval(timer);
 		pause = true;
-	}
     chrome.storage.local.set({'status':'none'});
+	}
+
 	updateIconAndText();
 }
 
