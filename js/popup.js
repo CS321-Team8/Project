@@ -1,21 +1,16 @@
-function startTimer(duration, display) { //statr timer count down
-    var timer = duration, hours, minutes, seconds;
-    var countDown = setInterval(function () {
-        hours = parseInt(timer / 3600, 10);
-        minutes = parseInt((timer/60) % 60, 10);
-        seconds = parseInt(timer % 60,10);
+var initial;
+var total;
+var timer;
+var pause;
 
-        hours = hours < 10 ? "0" + hours : hours;
-        minutes = minutes < 10 ? "0" + minutes : minutes;
-        seconds = seconds < 10 ? "0" + seconds : seconds;
-        display.textContent = hours + ":" + minutes+ ":" +seconds;
+const cd = document.getElementById("countdown");
 
-        if (--timer < 0) {
-            clearInterval(countDown);
-            chrome.storage.local.set({'status':'none'});
-        }
-    }, 1000);
-    updateIconAndText();
+function updateCountdown() {
+	const minutes = Math.floor(total / 60);
+	let seconds = total % 60;
+	seconds = seconds < 10 ? seconds + '0' : seconds;
+	cd.innerHTML = `${minutes}: ${seconds}`;
+	total--;
 }
 
 var submitButton = document.getElementById("submitButton");
@@ -23,20 +18,27 @@ var hour = document.getElementById("hour");
 var minute = document.getElementById("minute");
 var cancelButton = document.getElementById("cancelButton");
 var oBox = document.getElementById('switch_1');
+
 submitButton.onclick = function () { // when click submit button
-    var inputSeconds = 60*((60 * hour.value)+minute.value);
-    display = document.querySelector('#time');
+	clearInterval(timer);
+	initial = parseInt(document.getElementById("hour").value * 60) + parseInt(document.getElementById("minute").value);
+	total = initial * 60;
+	timer = setInterval(updateCountdown, 1000);
     chrome.storage.local.set({'status':'block'});
-    startTimer(inputSeconds, display);
-    updateIconAndText();
+	updateIconAndText();
 };
 
 cancelButton.onclick = function() { // when click cancel button
+    if (pause == true) {
+		timer = setInterval(updateCountdown, 1000);
+		pause = false;
+	}
+	else {
+		clearInterval(timer);
+		pause = true;
+	}
     chrome.storage.local.set({'status':'none'});
-    var inputSeconds = 0;
-    display = document.querySelector('#time');
-    startTimer(inputSeconds, display);
-    updateIconAndText();
+	updateIconAndText();
 }
 
 function updateIconAndText(){ // when status change, update icon and text
