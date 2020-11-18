@@ -21,7 +21,7 @@ chrome.webRequest.onBeforeRequest.addListener(
         return {cancel: true};
     },
     {
-        urls: ["*://site.com/test/*"]
+        urls: ["*://twitter.com/*", "*://facebook.com/*", "*://youtube.com/*"]
     },
     ["blocking"]
 );
