@@ -3,10 +3,11 @@
 
   "name": "SiteBlocker",
   "version": "1.0.0",
-  "description": "Block non-important info from your browsers",
-
-  "content_scripts": [{
-    "js": ["js/block_url.js"],
-    "matches": ["http://*/*", "https://*/*"]
-  }],
+  "description": "Block distracting websites from your browsers",
+  "permissions": ["tabs", "webRequest", "webRequestBlocking", "http://*twitter.com/*", "http://*facebook.com/*", "http://*youtube.com/*"],
+  
+   "background": {
+    "scripts": ["js/block_url.js"],
+    "persistent": true
+  }
 }
