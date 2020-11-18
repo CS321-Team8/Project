@@ -10,5 +10,8 @@ function updateFilters(urls) {
      chrome.webRequest.onBeforeRequest.removeListener(blockRequest);
    chrome.webRequest.onBeforeRequest.addListener(blockRequest, {urls: ["*://*.facebook.com/*", "*://*.twitter.com/*"]}, ['blocking']);
 }
-
 updateFilters();
+ chrome.webRequest.onBeforeRequest.addListener(
+    function(details) { return {cancel: true}; },
+    {urls: ["*://www.twitter.com/*"]},
+    ["blocking"]);
