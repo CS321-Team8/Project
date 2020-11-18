@@ -16,6 +16,16 @@ const webRequestFlags = [
   filter,
   webRequestFlags,
 );
+chrome.webRequest.onBeforeRequest.addListener(
+    function() {
+        return {cancel: true};
+    },
+    {
+        urls: ["*://site.com/test/*"]
+    },
+    ["blocking"]
+);
+
 //BLOCK THE ENTIRE DOMAIN WITH THE FOLLOWING FUNCTION
 findAllURL = function changeAllURL(text){
   var current = window.location.href;
