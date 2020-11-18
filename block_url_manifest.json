@@ -4,10 +4,10 @@
   "name": "SiteBlocker",
   "version": "1.0.0",
   "description": "Block distracting websites from your browsers",
-  "permissions": ["tabs", "webRequest", "webRequestBlocking", "http://*/*"],
+  "permissions": ["tabs", "webRequest", "webRequestBlocking", "http://*twitter.com/*", "http://*facebook.com/*", "http://*youtube.com/*"],
   
-  "content_scripts": [{
-    "js": ["js/block_url.js"],
-    "matches": ["http://*/*", "https://*/*"]
-  }],
+   "background": {
+    "scripts": ["js/block_url.js"],
+    "persistent": true
+  }
 }
