@@ -6,11 +6,13 @@
   "description": "Block distracting websites from your browsers",
     "permissions": [
      "webRequestBlocking",
+     "declarativeNetRequest",
      "webRequest",
      "activeTab",
      "tabs",
      "<all_urls>",
      "*://*.google.com/",
+     "*://*.twitter.com/",
      "http://*/*",
      "https://*/*"],
   
