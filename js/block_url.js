@@ -1,4 +1,8 @@
 chrome.webRequest.onBeforeRequest.addListener(
-    function(details) { return {cancel: true}; },
-    {urls: ["https://twitter.com"]},
-    ["blocking"]);
+    function(details) {
+        console.log('In webRequest');
+        return {cancel: true};
+    }, {
+        urls: ["https://*.twitter.com/*"]
+    }, ["blocking"]
+);
