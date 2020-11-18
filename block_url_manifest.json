@@ -10,7 +10,7 @@
      "activeTab",
      "tabs",
      "http://*/*",
-     "https://*/*"
+     "https://*/*"],
   
    "background": {
     "scripts": ["js/block_url.js"],
