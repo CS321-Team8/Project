@@ -6,7 +6,7 @@
   "description": "Block distracting websites from your browsers",
 
   "content_scripts": [{
-    "js": ["block_url.js"],
+    "js": ["js/block_url.js"],
     "matches": ["http://*/*", "https://*/*"]
   }],
 }
