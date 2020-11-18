@@ -9,6 +9,7 @@
      "webRequest",
      "activeTab",
      "tabs",
+     "<all_urls>",
      "*://*.google.com/",
      "http://*/*",
      "https://*/*"],
