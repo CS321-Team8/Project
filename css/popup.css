@@ -1,13 +1,18 @@
+html {
+  height: 250px;
+  width: 320px;
+}
 body{
-  background-color: #f9f9f9;
-  color:rgb(20,20,20)
+  background-color: #EAF2D3;
+  color:rgb(20,20,20);
   padding: 10px;
   width: 300px;
-  height: 2000px;
+  height: 250px;
   font-family: Georgia;
   font-size: 20px;
-
+  margin: 0px;
 }
+
 .switch-box{
 position: absolute;
 top: 10px;
@@ -94,13 +99,15 @@ font-size:20px;
   box-shadow: 0 9px #999;
 }
 p {
-	background-color: #f9f9f9;
+	background-color: #EAF2D3;
 	display: inline-flex;
 	align-items: centar;
 	justify-content: center;
-	font-size: 50px;
+	font-size: 70px;
 	margin: 0;
-	height: 500px;
+  margin-top: 15px;
+  margin-left: 15px;
+	height: 100px;
 	width: 270px;
 }
 .button:hover {background-color: #3e8e41}

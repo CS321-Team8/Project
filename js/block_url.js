@@ -1,4 +1,18 @@
-      chrome.webRequest.onBeforeRequest.addListener(
-        function(details) { return {cancel: true}; },
-        {urls: ["*://www.twitter.com/*","*://www.facebook.com/*", "*://www.youtube.com/*"]},
-        ["blocking"]);
+const filter = {
+  urls: [
+    '*://twitter.com/*', '*://facebook.com/*', '*://youtube.com/*'
+  ],
+}
+const webRequestFlags = [
+  'blocking',
+];
+  page => {
+    console.log('page blocked - ' + page.url);
+
+    return {
+      cancel: true,
+    };
+  },
+  filter,
+  webRequestFlags,
+);
